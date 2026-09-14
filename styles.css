@@ -63,3 +63,17 @@ tr:last-child td{border-bottom:none}
   th,td{padding:12px 10px;font-size:.9rem}
   .pick{min-width:72px}
 }
+
+.pick.locked{
+  background:rgba(232,240,228,.04);
+  color:transparent;
+  position:relative;
+}
+.pick.locked::after{
+  content:"••••";
+  color:rgba(232,240,228,.35);
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  letter-spacing:.2em;font-size:.8rem;
+  pointer-events:none;
+}
