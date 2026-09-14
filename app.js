@@ -1,6 +1,6 @@
 
 (() => {
-  const KEY = "nfl-week2-picks-v1";
+  const KEY = "nfl-week2-picks-v2";
   const cells = [...document.querySelectorAll("td.pick")];
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (_) {}
