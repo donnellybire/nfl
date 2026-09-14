@@ -12,16 +12,17 @@
     };
   }
 
+  function revealCell(cell) {
+    const v = (cell.dataset.value || "").trim();
+    cell.textContent = v || "";
+    cell.classList.toggle("locked", !v);
+    cell.title = v ? "" : "Hidden until this pick is in";
+  }
+
   function revealPair(bd, ms) {
-    const bv = (bd.dataset.value || "").trim();
-    const mv = (ms.dataset.value || "").trim();
-    const both = bv && mv;
-    bd.textContent = both ? bv : "";
-    ms.textContent = both ? mv : "";
-    bd.classList.toggle("locked", !both);
-    ms.classList.toggle("locked", !both);
-    bd.title = both ? "" : "Hidden until BD and MS are both in";
-    ms.title = both ? "" : "Hidden until BD and MS are both in";
+    // Each column reveals independently when it has a value
+    revealCell(bd);
+    revealCell(ms);
   }
 
   function refreshAll() {
