@@ -18,7 +18,7 @@ body{
   color:var(--ink);
   -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:1100px;margin:0 auto;padding:28px 18px 48px}
+.wrap{max-width:1480px;margin:0 auto;padding:28px 18px 48px}
 header{margin-bottom:22px}
 .eyebrow{
   margin:0 0 8px;
@@ -28,19 +28,22 @@ header{margin-bottom:22px}
 h1{margin:0;font-size:clamp(2rem,5vw,2.8rem);letter-spacing:-.03em;line-height:1}
 .sub{margin:10px 0 0;color:var(--muted);font-size:.98rem}
 .table-scroller{
-  overflow:auto;
+  overflow-x:auto;
+  overflow-y:visible;
+  -webkit-overflow-scrolling:touch;
   border:1px solid var(--line);
   border-radius:16px;
   background:var(--panel);
   box-shadow:0 18px 40px rgba(0,0,0,.28);
 }
-table{width:100%;border-collapse:collapse;min-width:1020px}
+table{width:100%;border-collapse:collapse;min-width:1360px;table-layout:auto}
 th,td{
-  padding:14px 14px;
+  padding:14px 16px;
   text-align:left;
   border-bottom:1px solid var(--line);
   vertical-align:middle;
   font-size:.95rem;
+  white-space:nowrap;
 }
 th{
   position:sticky;top:0;z-index:1;
@@ -49,10 +52,10 @@ th{
   color:var(--muted);font-weight:700;
 }
 tr:last-child td{border-bottom:none}
-.when{white-space:nowrap;color:var(--muted);font-variant-numeric:tabular-nums;font-size:.88rem}
-.away,.home{font-weight:600}
+.when{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.88rem;min-width:11.5rem}
+.away,.home{font-weight:600;min-width:11rem}
 .pick{
-  min-width:88px;max-width:140px;
+  min-width:7.5rem;
   background:rgba(61,214,140,.06);
   outline:none;
   cursor:text;
@@ -61,7 +64,8 @@ tr:last-child td{border-bottom:none}
 .hint{margin:16px 4px 0;color:var(--muted);font-size:.85rem}
 @media (max-width:640px){
   th,td{padding:12px 10px;font-size:.9rem}
-  .pick{min-width:72px}
+  .pick{min-width:6.5rem}
+  table{min-width:1180px}
 }
 
 .pick.locked{
