@@ -34,7 +34,7 @@ h1{margin:0;font-size:clamp(2rem,5vw,2.8rem);letter-spacing:-.03em;line-height:1
   background:var(--panel);
   box-shadow:0 18px 40px rgba(0,0,0,.28);
 }
-table{width:100%;border-collapse:collapse;min-width:900px}
+table{width:100%;border-collapse:collapse;min-width:1020px}
 th,td{
   padding:14px 14px;
   text-align:left;

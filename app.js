@@ -8,6 +8,7 @@
       ms: tr.querySelector('td.pick[data-col="ms"]'),
       gill: tr.querySelector('td.pick[data-col="gill"]'),
       open: tr.querySelector('td.pick[data-col="open"]'),
+      live: tr.querySelector('td.pick[data-col="live"]'),
     };
   }
 
@@ -36,12 +37,12 @@
 
   document.querySelectorAll("tbody tr").forEach((tr, rowIdx) => {
     const c = rowCells(tr);
-    ["bd", "ms", "gill", "open"].forEach((col) => {
+    ["bd", "ms", "gill", "open", "live"].forEach((col) => {
       const cell = c[col];
       if (!cell) return;
       const k = rowIdx + ":" + col;
       if (saved[k] != null) cell.dataset.value = saved[k];
-      if (col === "gill" || col === "open") {
+      if (col === "gill" || col === "open" || col === "live") {
         cell.contentEditable = "true";
         if (cell.dataset.value) cell.textContent = cell.dataset.value;
         const persist = () => {
@@ -49,7 +50,7 @@
           const next = {};
           document.querySelectorAll("tbody tr").forEach((r, i) => {
             const rc = rowCells(r);
-            ["bd", "ms", "gill", "open"].forEach((cc) => {
+            ["bd", "ms", "gill", "open", "live"].forEach((cc) => {
               if (!rc[cc]) return;
               const v = (rc[cc].dataset.value || rc[cc].textContent || "").trim();
               if (v) next[i + ":" + cc] = v;
