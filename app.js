@@ -1,6 +1,8 @@
 
 (() => {
   const KEY = "nfl-week2-picks-v3";
+  const PICK_COLS = ["bd", "ms", "gill", "open", "super", "splash", "live"];
+  const EDITABLE_PICKS = ["gill", "open", "super", "splash", "live"];
 
   function rowCells(tr) {
     return {
@@ -9,7 +11,9 @@
       gill: tr.querySelector('td.pick[data-col="gill"]'),
       open: tr.querySelector('td.pick[data-col="open"]'),
       super: tr.querySelector('td.pick[data-col="super"]'),
+      splash: tr.querySelector('td.pick[data-col="splash"]'),
       live: tr.querySelector('td.pick[data-col="live"]'),
+      notes: tr.querySelector('td.notes[data-col="notes"]'),
     };
   }
 
@@ -33,44 +37,63 @@
     });
   }
 
+  function persistAll() {
+    const next = {};
+    document.querySelectorAll("tbody tr").forEach((r, i) => {
+      const rc = rowCells(r);
+      PICK_COLS.forEach((cc) => {
+        if (!rc[cc]) return;
+        const v = (rc[cc].dataset.value || rc[cc].textContent || "").trim();
+        if (v) next[i + ":" + cc] = v;
+      });
+      if (rc.notes) {
+        const v = (rc.notes.dataset.value || rc.notes.textContent || "").trim();
+        if (v) next[i + ":notes"] = v;
+      }
+    });
+    localStorage.setItem(KEY, JSON.stringify(next));
+    refreshAll();
+  }
+
   // Load any local overrides (editor device)
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (_) {}
 
   document.querySelectorAll("tbody tr").forEach((tr, rowIdx) => {
     const c = rowCells(tr);
-    ["bd", "ms", "gill", "open", "super", "live"].forEach((col) => {
+    PICK_COLS.forEach((col) => {
       const cell = c[col];
       if (!cell) return;
       const k = rowIdx + ":" + col;
       if (saved[k] != null) cell.dataset.value = saved[k];
-      if (col === "gill" || col === "open" || col === "super" || col === "live") {
+      if (EDITABLE_PICKS.includes(col)) {
         cell.contentEditable = "true";
         if (cell.dataset.value) cell.textContent = cell.dataset.value;
-        const persist = () => {
-          cell.dataset.value = cell.textContent.trim();
-          const next = {};
-          document.querySelectorAll("tbody tr").forEach((r, i) => {
-            const rc = rowCells(r);
-            ["bd", "ms", "gill", "open", "super", "live"].forEach((cc) => {
-              if (!rc[cc]) return;
-              const v = (rc[cc].dataset.value || rc[cc].textContent || "").trim();
-              if (v) next[i + ":" + cc] = v;
-            });
-          });
-          localStorage.setItem(KEY, JSON.stringify(next));
-          refreshAll();
-        };
         cell.addEventListener("input", () => {
           cell.dataset.value = cell.textContent.trim();
-          persist();
+          persistAll();
         });
-        cell.addEventListener("blur", persist);
+        cell.addEventListener("blur", persistAll);
       } else {
         // BD/MS: not casually editable on the public board; values come from data-value
         cell.contentEditable = "false";
       }
     });
+
+    // Notes: plain editable text (not a pick/spread column)
+    if (c.notes) {
+      const k = rowIdx + ":notes";
+      if (saved[k] != null) {
+        c.notes.dataset.value = saved[k];
+        c.notes.textContent = saved[k];
+      }
+      c.notes.contentEditable = "true";
+      c.notes.addEventListener("input", () => {
+        c.notes.dataset.value = c.notes.textContent.trim();
+        persistAll();
+      });
+      c.notes.addEventListener("blur", persistAll);
+    }
   });
 
   refreshAll();
