@@ -81,3 +81,50 @@ tr:last-child td{border-bottom:none}
   letter-spacing:.2em;font-size:.8rem;
   pointer-events:none;
 }
+
+.pick.closer{
+  background:rgba(61,214,140,.16);
+  box-shadow:inset 3px 0 0 var(--accent);
+}
+.score-strip{
+  margin-top:16px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--panel);
+  box-shadow:0 18px 40px rgba(0,0,0,.22);
+  padding:16px 18px 18px;
+}
+.score-title{
+  font-size:.72rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;
+}
+.score-grid{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:14px;
+  align-items:center;
+}
+.score-card{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 14px;
+  background:rgba(61,214,140,.04);
+}
+.score-card.lead{
+  border-color:rgba(61,214,140,.45);
+  background:rgba(61,214,140,.12);
+}
+.score-name{font-weight:700;font-size:1.05rem;margin-bottom:4px}
+.score-wins{font-variant-numeric:tabular-nums}
+.score-err{color:var(--muted);font-size:.9rem;margin-top:2px;font-variant-numeric:tabular-nums}
+.score-mid{text-align:center;padding:0 8px}
+.score-ties{color:var(--muted);font-size:.9rem}
+.score-leader{
+  margin-top:6px;font-weight:700;color:var(--accent);
+  letter-spacing:.02em;
+}
+@media (max-width:640px){
+  .score-grid{grid-template-columns:1fr;gap:10px}
+  .score-mid{order:3}
+}
