@@ -18,7 +18,7 @@ body{
   color:var(--ink);
   -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:1480px;margin:0 auto;padding:28px 18px 48px}
+.wrap{max-width:1640px;margin:0 auto;padding:28px 18px 48px}
 header{margin-bottom:22px}
 .eyebrow{
   margin:0 0 8px;
@@ -36,7 +36,7 @@ h1{margin:0;font-size:clamp(2rem,5vw,2.8rem);letter-spacing:-.03em;line-height:1
   background:var(--panel);
   box-shadow:0 18px 40px rgba(0,0,0,.28);
 }
-table{width:100%;border-collapse:collapse;min-width:1360px;table-layout:auto}
+table{width:100%;border-collapse:collapse;min-width:1520px;table-layout:auto}
 th,td{
   padding:14px 16px;
   text-align:left;
@@ -65,7 +65,7 @@ tr:last-child td{border-bottom:none}
 @media (max-width:640px){
   th,td{padding:12px 10px;font-size:.9rem}
   .pick{min-width:6.5rem}
-  table{min-width:1180px}
+  table{min-width:1340px}
 }
 
 .pick.locked{
