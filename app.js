@@ -1,8 +1,8 @@
 
 (() => {
   const KEY = "nfl-week2-picks-v3";
-  const PICK_COLS = ["bd", "ms", "gill", "open", "super", "splash", "live"];
-  const EDITABLE_PICKS = ["gill", "open", "super", "splash", "live"];
+  const PICK_COLS = ["bd", "ms", "gill", "open", "super", "splash", "nats", "live"];
+  const EDITABLE_PICKS = ["gill", "open", "super", "splash", "nats", "live"];
 
   function rowCells(tr) {
     return {
@@ -12,6 +12,7 @@
       open: tr.querySelector('td.pick[data-col="open"]'),
       super: tr.querySelector('td.pick[data-col="super"]'),
       splash: tr.querySelector('td.pick[data-col="splash"]'),
+      nats: tr.querySelector('td.pick[data-col="nats"]'),
       live: tr.querySelector('td.pick[data-col="live"]'),
       notes: tr.querySelector('td.notes[data-col="notes"]'),
     };
