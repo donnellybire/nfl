@@ -1,5 +1,5 @@
 (() => {
-  const KEY = "nfl-week3-picks-v1";
+  const KEY = "nfl-week3-picks-v2";
   const PICK_COLS = ["bd", "ms", "gill", "opening", "supercontest", "splash", "nats", "live"];
   const EDITABLE_PICKS = ["gill", "opening", "supercontest", "splash", "nats", "live"];
 
@@ -32,9 +32,17 @@
   }
 
   // Normalize pick text to a home-team spread (home favored = negative).
+  // Accepts bare home spreads (+6, -7, 6, PK) and legacy "Team ±N".
   function homeSpread(raw, awayName, homeName) {
     const s = (raw || "").trim().replace(/\*+$/, "").trim();
     if (!s) return null;
+
+    // Already a home-relative number / pick'em
+    const bare = s.match(/^(PK|[+-]?\d+(?:\.\d+)?)$/i);
+    if (bare) {
+      return bare[1].toUpperCase() === "PK" ? 0 : parseFloat(bare[1]);
+    }
+
     const m = s.match(/^(.+?)\s+(PK|[+-]?\d+(?:\.\d+)?)$/i);
     if (!m) return null;
     const team = m[1].trim().toLowerCase();
