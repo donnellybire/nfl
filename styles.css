@@ -140,3 +140,24 @@ tr:last-child td{border-bottom:none}
 }
 .notes:focus{background:rgba(61,214,140,.10);box-shadow:inset 0 0 0 1px var(--accent);color:var(--ink)}
 .notes:empty::before{content:" ";}
+
+.week-nav{
+  display:flex;gap:10px;flex-wrap:wrap;
+  margin:14px 0 0;
+}
+.week-nav a{
+  display:inline-flex;align-items:center;
+  padding:7px 14px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.85rem;font-weight:600;
+  letter-spacing:.04em;
+}
+.week-nav a:hover{color:var(--ink);border-color:rgba(61,214,140,.35)}
+.week-nav a.active{
+  color:var(--bg);
+  background:var(--accent);
+  border-color:var(--accent);
+}
