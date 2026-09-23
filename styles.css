@@ -161,3 +161,63 @@ tr:last-child td{border-bottom:none}
   background:var(--accent);
   border-color:var(--accent);
 }
+
+/* Week 3+ home-spread boards: fit all columns on one screen */
+body.board-compact .wrap{
+  max-width:none;
+  padding:16px 10px 32px;
+}
+body.board-compact h1{font-size:clamp(1.6rem,3.5vw,2.2rem)}
+body.board-compact .sub{font-size:.88rem}
+body.board-compact .table-scroller{overflow-x:visible}
+body.board-compact table{
+  min-width:0;
+  width:100%;
+  table-layout:fixed;
+}
+body.board-compact th,body.board-compact td{
+  padding:8px 6px;
+  font-size:.82rem;
+}
+body.board-compact th{
+  font-size:.62rem;
+  letter-spacing:.06em;
+  padding:8px 4px;
+}
+body.board-compact .when{
+  min-width:0;
+  font-size:.75rem;
+  white-space:normal;
+  line-height:1.25;
+}
+body.board-compact .away,body.board-compact .home{
+  min-width:0;
+  font-size:.82rem;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+body.board-compact .pick{
+  min-width:0;
+  text-align:center;
+  font-variant-numeric:tabular-nums;
+  font-size:.82rem;
+}
+body.board-compact .notes{
+  min-width:0;
+  max-width:none;
+  white-space:normal;
+  font-size:.75rem;
+  line-height:1.25;
+  color:var(--muted);
+}
+body.board-compact .score-strip{padding:12px 14px 14px}
+@media (max-width:1100px){
+  body.board-compact .table-scroller{overflow-x:auto}
+  body.board-compact table{min-width:1100px;table-layout:auto}
+}
+
+body.board-compact col.w-when{width:11%}
+body.board-compact col.w-team{width:7.5%}
+body.board-compact col.w-pick{width:5.8%}
+body.board-compact col.w-notes{width:14%}
+
