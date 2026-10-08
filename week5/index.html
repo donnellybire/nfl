@@ -7,6 +7,16 @@
   <meta name="description" content="NFL Week 5 picks — BD, MS, Gill." />
   <title>NFL Week 5 · bobbydonnelly.com</title>
   <link rel="stylesheet" href="../styles.css" />
+  <style id="best-line-style">
+    /* Most extreme contest line per game (Super / Timmy V / NATS) */
+    .pick.best-line,
+    body.board-compact .pick.best-line{
+      background:rgba(0,114,85,.62);
+      box-shadow:inset 0 0 0 1px rgba(61,214,140,.75);
+      color:#fff;
+      font-weight:800;
+    }
+  </style>
 </head>
 <body class="board-compact">
   <main class="wrap">
@@ -290,5 +300,51 @@
     <p class="hint">BD and MS each show when that column has a guess for the game. Gill, Opening line, Supercontest, Timmy V 5-0, and Live line show when filled. Notes is free text. Green tint marks who is closer to the Opening line that game.</p>
   </main>
   <script src="app.js"></script>
+  <script id="best-line-script">
+  // Highlight the most extreme Supercontest / Timmy V / NATS line per game:
+  // all + (or PK) -> highest; all - (or PK) -> lowest; mixed signs -> largest
+  // absolute value. Every tied cell is highlighted. Needs 2+ numeric lines.
+  (() => {
+    const COLS = ["supercontest", "splash", "nats"];
+    function parseLine(cell) {
+      if (!cell) return null;
+      let s = (cell.textContent || "").trim();
+      if (!s) s = (cell.dataset.value || "").trim();
+      s = s.replace(/[\u2212\u2013\u2014]/g, "-").replace(/\*+$/, "").trim();
+      if (/^(pk|pick|pick'?em)$/i.test(s)) return 0;
+      if (!/^[+-]?\d+(?:\.\d+)?$/.test(s)) return null;
+      return parseFloat(s);
+    }
+    function markBestLines() {
+      document.querySelectorAll("tbody tr").forEach((tr) => {
+        const items = COLS.map((col) => {
+          const cell = tr.querySelector('td.pick[data-col="' + col + '"]');
+          return { cell, v: parseLine(cell) };
+        }).filter((x) => x.cell);
+        items.forEach((x) => x.cell.classList.remove("best-line"));
+        const nums = items.filter((x) => x.v !== null && !Number.isNaN(x.v));
+        if (nums.length < 2) return;
+        const vals = nums.map((x) => x.v);
+        let target;
+        if (vals.every((v) => v >= 0)) target = Math.max(...vals);
+        else if (vals.every((v) => v <= 0)) target = Math.min(...vals);
+        else target = Math.max(...vals.map(Math.abs));
+        const mixed = !vals.every((v) => v >= 0) && !vals.every((v) => v <= 0);
+        nums.forEach((x) => {
+          const hit = mixed ? Math.abs(x.v) === target : x.v === target;
+          if (hit) x.cell.classList.add("best-line");
+        });
+      });
+    }
+    const isLineCell = (el) =>
+      el && el.matches && el.matches('td.pick[data-col="supercontest"], td.pick[data-col="splash"], td.pick[data-col="nats"]');
+    document.addEventListener("input", (e) => { if (isLineCell(e.target)) markBestLines(); });
+    document.addEventListener("focusout", (e) => { if (isLineCell(e.target)) markBestLines(); });
+    window.markBestLines = markBestLines;
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", markBestLines);
+    else markBestLines();
+    window.addEventListener("load", markBestLines);
+  })();
+  </script>
 </body>
 </html>
