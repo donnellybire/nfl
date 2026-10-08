@@ -306,6 +306,8 @@
   // absolute value. Every tied cell is highlighted. Needs 2+ numeric lines.
   (() => {
     const COLS = ["supercontest", "splash", "nats"];
+    // Bobby's manual picks by home team: null = no highlight, number = highlight that line instead.
+    const OVERRIDES = { Dolphins: null, Saints: null, Jets: null, Steelers: null, Rams: -2.5 };
     function parseLine(cell) {
       if (!cell) return null;
       let s = (cell.textContent || "").trim();
@@ -323,6 +325,12 @@
         }).filter((x) => x.cell);
         items.forEach((x) => x.cell.classList.remove("best-line"));
         const nums = items.filter((x) => x.v !== null && !Number.isNaN(x.v));
+        const home = ((tr.querySelector("td.home") || {}).textContent || "").trim();
+        if (Object.prototype.hasOwnProperty.call(OVERRIDES, home)) {
+          const want = OVERRIDES[home];
+          if (want !== null) nums.forEach((x) => { if (x.v === want) x.cell.classList.add("best-line"); });
+          return;
+        }
         if (nums.length < 2) return;
         const vals = nums.map((x) => x.v);
         let target;
