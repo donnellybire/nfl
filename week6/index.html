@@ -294,7 +294,7 @@
   (() => {
     const COLS = ["supercontest", "splash", "nats"];
     // Bobby's manual picks by home team: null = no highlight, number = highlight that line instead.
-    const OVERRIDES = {};
+    const OVERRIDES = { Broncos: 2.5, Jaguars: -2.5, Falcons: 3.5, Colts: -6.5, Buccaneers: 3 };
     function parseLine(cell) {
       if (!cell) return null;
       let s = (cell.textContent || "").trim();
