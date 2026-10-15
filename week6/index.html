@@ -8,6 +8,7 @@
   <title>NFL Week 6 · bobbydonnelly.com</title>
   <link rel="stylesheet" href="../styles.css" />
   <style id="best-line-style">
+    .pick[data-col="supercontest"], .pick[data-col="splash"], .pick[data-col="nats"]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
     /* Most extreme contest line per game (Super / Timmy V / NATS) */
     .pick.best-line,
     body.board-compact .pick.best-line{
@@ -74,9 +75,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="+3.5" aria-label="Gill pick">+3.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="+3" aria-label="Opening line">+3</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="+3" aria-label="Supercontest">+3</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="+2.5" aria-label="Timmy V 5-0">+2.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="+2.5" aria-label="NATS line">+2.5</td>
+        <td class="pick" data-col="supercontest" data-value="+3" aria-label="Supercontest">+3</td>
+        <td class="pick" data-col="splash" data-value="+2.5" aria-label="Timmy V 5-0">+2.5</td>
+        <td class="pick" data-col="nats" data-value="+2.5" aria-label="NATS line">+2.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="+2.5" aria-label="Live line">+2.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Seahawks +2.5; Under" aria-label="Notes">Seahawks +2.5; Under</td>
       </tr>
@@ -88,9 +89,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-4.5" aria-label="Gill pick">-4.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="-2.5" aria-label="Opening line">-2.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="-2.5" aria-label="Supercontest">-2.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-2.5" aria-label="Timmy V 5-0">-2.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-3" aria-label="NATS line">-3</td>
+        <td class="pick" data-col="supercontest" data-value="-2.5" aria-label="Supercontest">-2.5</td>
+        <td class="pick" data-col="splash" data-value="-2.5" aria-label="Timmy V 5-0">-2.5</td>
+        <td class="pick" data-col="nats" data-value="-3" aria-label="NATS line">-3</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="-2.5" aria-label="Live line">-2.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Jaguars -2.5" aria-label="Notes">Jaguars -2.5</td>
       </tr>
@@ -102,9 +103,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-3" aria-label="Gill pick">-3</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="+3" aria-label="Opening line">+3</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="+3" aria-label="Supercontest">+3</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="+3.5" aria-label="Timmy V 5-0">+3.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="+3" aria-label="NATS line">+3</td>
+        <td class="pick" data-col="supercontest" data-value="+3" aria-label="Supercontest">+3</td>
+        <td class="pick" data-col="splash" data-value="+3.5" aria-label="Timmy V 5-0">+3.5</td>
+        <td class="pick" data-col="nats" data-value="+3" aria-label="NATS line">+3</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="+1.5" aria-label="Live line">+1.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Falcons +3.5" aria-label="Notes">Falcons +3.5</td>
       </tr>
@@ -116,9 +117,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="+5.5" aria-label="Gill pick">+5.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="+4.5" aria-label="Opening line">+4.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="+4.5" aria-label="Supercontest">+4.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="+4.5" aria-label="Timmy V 5-0">+4.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="+4.5" aria-label="NATS line">+4.5</td>
+        <td class="pick" data-col="supercontest" data-value="+4.5" aria-label="Supercontest">+4.5</td>
+        <td class="pick" data-col="splash" data-value="+4.5" aria-label="Timmy V 5-0">+4.5</td>
+        <td class="pick" data-col="nats" data-value="+4.5" aria-label="NATS line">+4.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="+5.5" aria-label="Live line">+5.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
       </tr>
@@ -130,9 +131,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-6.5" aria-label="Gill pick">-6.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="-6.5" aria-label="Opening line">-6.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="-7" aria-label="Supercontest">-7</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-6.5" aria-label="Timmy V 5-0">-6.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-7" aria-label="NATS line">-7</td>
+        <td class="pick" data-col="supercontest" data-value="-7" aria-label="Supercontest">-7</td>
+        <td class="pick" data-col="splash" data-value="-6.5" aria-label="Timmy V 5-0">-6.5</td>
+        <td class="pick" data-col="nats" data-value="-7" aria-label="NATS line">-7</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="-7" aria-label="Live line">-7</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Colts -6.5" aria-label="Notes">Colts -6.5</td>
       </tr>
@@ -144,9 +145,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-6.5" aria-label="Gill pick">-6.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="-7.5" aria-label="Opening line">-7.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="-7.5" aria-label="Supercontest">-7.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-7.5" aria-label="Timmy V 5-0">-7.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-7.5" aria-label="NATS line">-7.5</td>
+        <td class="pick" data-col="supercontest" data-value="-7.5" aria-label="Supercontest">-7.5</td>
+        <td class="pick" data-col="splash" data-value="-7.5" aria-label="Timmy V 5-0">-7.5</td>
+        <td class="pick" data-col="nats" data-value="-7.5" aria-label="NATS line">-7.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="-7.5" aria-label="Live line">-7.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
       </tr>
@@ -158,9 +159,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-1.5" aria-label="Gill pick">-1.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="-1.5" aria-label="Opening line">-1.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="-1" aria-label="Supercontest">-1</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="+1.5" aria-label="Timmy V 5-0">+1.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="+1.5" aria-label="NATS line">+1.5</td>
+        <td class="pick" data-col="supercontest" data-value="-1" aria-label="Supercontest">-1</td>
+        <td class="pick" data-col="splash" data-value="+1.5" aria-label="Timmy V 5-0">+1.5</td>
+        <td class="pick" data-col="nats" data-value="+1.5" aria-label="NATS line">+1.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="+1.5" aria-label="Live line">+1.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
       </tr>
@@ -172,9 +173,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-1.5" aria-label="Gill pick">-1.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="-1.5" aria-label="Opening line">-1.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="-1.5" aria-label="Supercontest">-1.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-1.5" aria-label="Timmy V 5-0">-1.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-1.5" aria-label="NATS line">-1.5</td>
+        <td class="pick" data-col="supercontest" data-value="-1.5" aria-label="Supercontest">-1.5</td>
+        <td class="pick" data-col="splash" data-value="-1.5" aria-label="Timmy V 5-0">-1.5</td>
+        <td class="pick" data-col="nats" data-value="-1.5" aria-label="NATS line">-1.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="+1.5" aria-label="Live line">+1.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
       </tr>
@@ -186,9 +187,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-1.5" aria-label="Gill pick">-1.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="+2.5" aria-label="Opening line">+2.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="+3" aria-label="Supercontest">+3</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="+2.5" aria-label="Timmy V 5-0">+2.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="+2.5" aria-label="NATS line">+2.5</td>
+        <td class="pick" data-col="supercontest" data-value="+3" aria-label="Supercontest">+3</td>
+        <td class="pick" data-col="splash" data-value="+2.5" aria-label="Timmy V 5-0">+2.5</td>
+        <td class="pick" data-col="nats" data-value="+2.5" aria-label="NATS line">+2.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="+2.5" aria-label="Live line">+2.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Buccaneers +3" aria-label="Notes">Buccaneers +3</td>
       </tr>
@@ -200,9 +201,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-10.5" aria-label="Gill pick">-10.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="-12.5" aria-label="Opening line">-12.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="-13.5" aria-label="Supercontest">-13.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-12.5" aria-label="Timmy V 5-0">-12.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-12.5" aria-label="NATS line">-12.5</td>
+        <td class="pick" data-col="supercontest" data-value="-13.5" aria-label="Supercontest">-13.5</td>
+        <td class="pick" data-col="splash" data-value="-12.5" aria-label="Timmy V 5-0">-12.5</td>
+        <td class="pick" data-col="nats" data-value="-12.5" aria-label="NATS line">-12.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="-12.5" aria-label="Live line">-12.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
       </tr>
@@ -214,9 +215,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-7" aria-label="Gill pick">-7</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="-7.5" aria-label="Opening line">-7.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="-8.5" aria-label="Supercontest">-8.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-8.5" aria-label="Timmy V 5-0">-8.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-8.5" aria-label="NATS line">-8.5</td>
+        <td class="pick" data-col="supercontest" data-value="-8.5" aria-label="Supercontest">-8.5</td>
+        <td class="pick" data-col="splash" data-value="-8.5" aria-label="Timmy V 5-0">-8.5</td>
+        <td class="pick" data-col="nats" data-value="-8.5" aria-label="NATS line">-8.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="-8.5" aria-label="Live line">-8.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
       </tr>
@@ -228,9 +229,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="+5.5" aria-label="Gill pick">+5.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="+6" aria-label="Opening line">+6</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="+6" aria-label="Supercontest">+6</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="+5.5" aria-label="Timmy V 5-0">+5.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="+5.5" aria-label="NATS line">+5.5</td>
+        <td class="pick" data-col="supercontest" data-value="+6" aria-label="Supercontest">+6</td>
+        <td class="pick" data-col="splash" data-value="+5.5" aria-label="Timmy V 5-0">+5.5</td>
+        <td class="pick" data-col="nats" data-value="+5.5" aria-label="NATS line">+5.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="+5.5" aria-label="Live line">+5.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
       </tr>
@@ -242,9 +243,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-4" aria-label="Gill pick">-4</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="-1.5" aria-label="Opening line">-1.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="-1.5" aria-label="Supercontest">-1.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-1.5" aria-label="Timmy V 5-0">-1.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-1.5" aria-label="NATS line">-1.5</td>
+        <td class="pick" data-col="supercontest" data-value="-1.5" aria-label="Supercontest">-1.5</td>
+        <td class="pick" data-col="splash" data-value="-1.5" aria-label="Timmy V 5-0">-1.5</td>
+        <td class="pick" data-col="nats" data-value="-1.5" aria-label="NATS line">-1.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="-1.5" aria-label="Live line">-1.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Packers -1.5; O 52.5" aria-label="Notes">Packers -1.5; O 52.5</td>
       </tr>
@@ -256,9 +257,9 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="ms" data-value="" aria-label="MS pick"></td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="gill" data-value="-10" aria-label="Gill pick">-10</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="opening" data-value="-7.5" aria-label="Opening line">-7.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="supercontest" data-value="-7.5" aria-label="Supercontest">-7.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-7.5" aria-label="Timmy V 5-0">-7.5</td>
-        <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-7.5" aria-label="NATS line">-7.5</td>
+        <td class="pick" data-col="supercontest" data-value="-7.5" aria-label="Supercontest">-7.5</td>
+        <td class="pick" data-col="splash" data-value="-7.5" aria-label="Timmy V 5-0">-7.5</td>
+        <td class="pick" data-col="nats" data-value="-7.5" aria-label="NATS line">-7.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="-7.5" aria-label="Live line">-7.5</td>
         <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
       </tr>
@@ -285,7 +286,7 @@
       </div>
     </div>
     <p class="hint">BD and MS each show when that column has a guess for the game. Gill, Opening line, Supercontest, Timmy V 5-0, and Live line show when filled. Notes is free text. Green tint marks who is closer to the Opening line that game.</p>
-    <p class="hint">Tap a Super, Timmy V or NATS cell to toggle its highlight. Double-tap to edit. <a href="#" onclick="window.resetBestLineToggles&&window.resetBestLineToggles();return false;">Reset highlights</a></p>
+    <p class="hint">Tap a Super, Timmy V or NATS cell to toggle its highlight. <a href="#" onclick="window.resetBestLineToggles&&window.resetBestLineToggles();return false;">Reset highlights</a></p>
   </main>
   <script src="app.js"></script>
   <script id="best-line-script">
@@ -350,32 +351,13 @@
       const home = ((tr && tr.querySelector("td.home")) || {}).textContent || "";
       return home.trim() + ":" + cell.dataset.col;
     }
-    // Tap = toggle highlight (cell is blurred so no keyboard). Double-tap, or tap
-    // on an already-focused cell = edit. Selections/typing never toggle.
-    let downFocused = false, lastTap = { cell: null, t: 0, prev: undefined };
-    document.addEventListener("pointerdown", (e) => {
-      const cell = e.target.closest && e.target.closest("td.pick");
-      downFocused = !!cell && document.activeElement === cell;
-    }, true);
+    // Super / Timmy V / NATS are read-only: a tap or click toggles the highlight.
     document.addEventListener("click", (e) => {
       const cell = e.target.closest && e.target.closest("td.pick");
       if (!isLineCell(cell)) return;
-      if (downFocused) return;
-      const sel = window.getSelection && window.getSelection();
-      if (sel && !sel.isCollapsed && cell.contains(sel.anchorNode)) return;
-      const t = loadToggles(), k = cellKey(cell), now = Date.now();
-      if (lastTap.cell === cell && now - lastTap.t < 400) {
-        // second tap: undo the first toggle and enter edit mode
-        if (lastTap.prev === undefined) delete t[k]; else t[k] = lastTap.prev;
-        saveToggles(t); lastTap = { cell: null, t: 0, prev: undefined };
-        markBestLines(); cell.focus();
-        try { const r = document.createRange(); r.selectNodeContents(cell); r.collapse(false); sel.removeAllRanges(); sel.addRange(r); } catch (_) {}
-        return;
-      }
-      lastTap = { cell, t: now, prev: Object.prototype.hasOwnProperty.call(t, k) ? t[k] : undefined };
-      t[k] = !cell.classList.contains("best-line");
+      const t = loadToggles();
+      t[cellKey(cell)] = !cell.classList.contains("best-line");
       saveToggles(t);
-      cell.blur();
       markBestLines();
     });
     window.resetBestLineToggles = () => { localStorage.removeItem(TKEY); markBestLines(); };

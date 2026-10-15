@@ -1,7 +1,9 @@
 (() => {
   const KEY = "nfl-week6-picks-v1";
   const PICK_COLS = ["bd", "ms", "gill", "opening", "supercontest", "splash", "nats", "live"];
-  const EDITABLE_PICKS = ["gill", "opening", "supercontest", "splash", "nats", "live"];
+  const EDITABLE_PICKS = ["gill", "opening", "live"];
+  // Supercontest / Timmy V / NATS are fixed lines: never restored from localStorage, not editable.
+  const FIXED_PICKS = ["supercontest", "splash", "nats"];
 
   function rowCells(tr) {
     return {
@@ -162,7 +164,7 @@
       const cell = c[col];
       if (!cell) return;
       const k = rowIdx + ":" + col;
-      if (saved[k] != null) cell.dataset.value = saved[k];
+      if (saved[k] != null && !FIXED_PICKS.includes(col)) cell.dataset.value = saved[k];
       if (EDITABLE_PICKS.includes(col)) {
         cell.contentEditable = "true";
         if (cell.dataset.value) cell.textContent = cell.dataset.value;
@@ -173,6 +175,7 @@
         cell.addEventListener("blur", persistAll);
       } else {
         cell.contentEditable = "false";
+        if (FIXED_PICKS.includes(col) && cell.dataset.value) cell.textContent = cell.dataset.value;
       }
     });
 
