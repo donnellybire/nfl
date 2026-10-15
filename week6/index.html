@@ -285,6 +285,7 @@
       </div>
     </div>
     <p class="hint">BD and MS each show when that column has a guess for the game. Gill, Opening line, Supercontest, Timmy V 5-0, and Live line show when filled. Notes is free text. Green tint marks who is closer to the Opening line that game.</p>
+    <p class="hint">Tap a Super, Timmy V or NATS cell to toggle its highlight. Double-tap to edit. <a href="#" onclick="window.resetBestLineToggles&&window.resetBestLineToggles();return false;">Reset highlights</a></p>
   </main>
   <script src="app.js"></script>
   <script id="best-line-script">
@@ -330,7 +331,54 @@
           if (hit) x.cell.classList.add("best-line");
         });
       });
+      // Bobby's tap toggles win over the automatic rule and OVERRIDES.
+      const tog = loadToggles();
+      document.querySelectorAll("tbody tr").forEach((tr) => {
+        const home = ((tr.querySelector("td.home") || {}).textContent || "").trim();
+        COLS.forEach((col) => {
+          const cell = tr.querySelector('td.pick[data-col="' + col + '"]');
+          const k = home + ":" + col;
+          if (cell && Object.prototype.hasOwnProperty.call(tog, k)) cell.classList.toggle("best-line", !!tog[k]);
+        });
+      });
     }
+    const TKEY = "nfl-week6-highlights-v1";
+    function loadToggles() { try { return JSON.parse(localStorage.getItem(TKEY) || "{}") || {}; } catch (_) { return {}; } }
+    function saveToggles(t) { localStorage.setItem(TKEY, JSON.stringify(t)); }
+    function cellKey(cell) {
+      const tr = cell.closest("tr");
+      const home = ((tr && tr.querySelector("td.home")) || {}).textContent || "";
+      return home.trim() + ":" + cell.dataset.col;
+    }
+    // Tap = toggle highlight (cell is blurred so no keyboard). Double-tap, or tap
+    // on an already-focused cell = edit. Selections/typing never toggle.
+    let downFocused = false, lastTap = { cell: null, t: 0, prev: undefined };
+    document.addEventListener("pointerdown", (e) => {
+      const cell = e.target.closest && e.target.closest("td.pick");
+      downFocused = !!cell && document.activeElement === cell;
+    }, true);
+    document.addEventListener("click", (e) => {
+      const cell = e.target.closest && e.target.closest("td.pick");
+      if (!isLineCell(cell)) return;
+      if (downFocused) return;
+      const sel = window.getSelection && window.getSelection();
+      if (sel && !sel.isCollapsed && cell.contains(sel.anchorNode)) return;
+      const t = loadToggles(), k = cellKey(cell), now = Date.now();
+      if (lastTap.cell === cell && now - lastTap.t < 400) {
+        // second tap: undo the first toggle and enter edit mode
+        if (lastTap.prev === undefined) delete t[k]; else t[k] = lastTap.prev;
+        saveToggles(t); lastTap = { cell: null, t: 0, prev: undefined };
+        markBestLines(); cell.focus();
+        try { const r = document.createRange(); r.selectNodeContents(cell); r.collapse(false); sel.removeAllRanges(); sel.addRange(r); } catch (_) {}
+        return;
+      }
+      lastTap = { cell, t: now, prev: Object.prototype.hasOwnProperty.call(t, k) ? t[k] : undefined };
+      t[k] = !cell.classList.contains("best-line");
+      saveToggles(t);
+      cell.blur();
+      markBestLines();
+    });
+    window.resetBestLineToggles = () => { localStorage.removeItem(TKEY); markBestLines(); };
     const isLineCell = (el) =>
       el && el.matches && el.matches('td.pick[data-col="supercontest"], td.pick[data-col="splash"], td.pick[data-col="nats"]');
     document.addEventListener("input", (e) => { if (isLineCell(e.target)) markBestLines(); });
