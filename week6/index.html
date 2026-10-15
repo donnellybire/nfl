@@ -78,7 +78,7 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="+2.5" aria-label="Timmy V 5-0">+2.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="+2.5" aria-label="NATS line">+2.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="+2.5" aria-label="Live line">+2.5</td>
-        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
+        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Seahawks +2.5; Under" aria-label="Notes">Seahawks +2.5; Under</td>
       </tr>
 <tr>
         <td class="when">Sun Oct 18 · 6:30am PT</td>
@@ -92,7 +92,7 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-2.5" aria-label="Timmy V 5-0">-2.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-3" aria-label="NATS line">-3</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="-2.5" aria-label="Live line">-2.5</td>
-        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
+        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Jaguars -2.5" aria-label="Notes">Jaguars -2.5</td>
       </tr>
 <tr>
         <td class="when">Sun Oct 18 · 10:00am PT</td>
@@ -106,7 +106,7 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="+3.5" aria-label="Timmy V 5-0">+3.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="+3" aria-label="NATS line">+3</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="+1.5" aria-label="Live line">+1.5</td>
-        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
+        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Falcons +3.5" aria-label="Notes">Falcons +3.5</td>
       </tr>
 <tr>
         <td class="when">Sun Oct 18 · 10:00am PT</td>
@@ -134,7 +134,7 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-6.5" aria-label="Timmy V 5-0">-6.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-7" aria-label="NATS line">-7</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="-7" aria-label="Live line">-7</td>
-        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
+        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Colts -6.5" aria-label="Notes">Colts -6.5</td>
       </tr>
 <tr>
         <td class="when">Sun Oct 18 · 10:00am PT</td>
@@ -190,7 +190,7 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="+2.5" aria-label="Timmy V 5-0">+2.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="+2.5" aria-label="NATS line">+2.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="+2.5" aria-label="Live line">+2.5</td>
-        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
+        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Buccaneers +3" aria-label="Notes">Buccaneers +3</td>
       </tr>
 <tr>
         <td class="when">Sun Oct 18 · 1:05pm PT</td>
@@ -246,7 +246,7 @@
         <td class="pick" contenteditable="true" spellcheck="false" data-col="splash" data-value="-1.5" aria-label="Timmy V 5-0">-1.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="nats" data-value="-1.5" aria-label="NATS line">-1.5</td>
         <td class="pick" contenteditable="true" spellcheck="false" data-col="live" data-value="-1.5" aria-label="Live line">-1.5</td>
-        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="" aria-label="Notes"></td>
+        <td class="notes" contenteditable="true" spellcheck="false" data-col="notes" data-value="Packers -1.5; O 52.5" aria-label="Notes">Packers -1.5; O 52.5</td>
       </tr>
 <tr>
         <td class="when">Mon Oct 19 · 5:15pm PT</td>
@@ -294,7 +294,7 @@
   (() => {
     const COLS = ["supercontest", "splash", "nats"];
     // Bobby's manual picks by home team: null = no highlight, number = highlight that line instead.
-    const OVERRIDES = { Broncos: 2.5, Jaguars: -2.5, Falcons: 3.5, Colts: -6.5, Buccaneers: 3 };
+    const OVERRIDES = { Broncos: 2.5, Jaguars: -2.5, Falcons: 3.5, Colts: -6.5, Buccaneers: 3, Packers: -1.5 };
     function parseLine(cell) {
       if (!cell) return null;
       let s = (cell.textContent || "").trim();
